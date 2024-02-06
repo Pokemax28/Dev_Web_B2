@@ -1,5 +1,6 @@
 <?php
-
+    namespace App;
+    use App\Session;
     require_once '../vendor/autoload.php';
 
     use App\Page;
@@ -9,11 +10,9 @@
     $msg = false;
     if(isset($_POST['send']))
     {
-        var_dump($_POST);
         $user = $page-> getUserByEmail([
         'email' => $_POST['email']
         ]);
-        var_dump($user);
 
         if(!$user){
             $msg= "Email ou Mot de Passe incorrect";
@@ -23,7 +22,9 @@
                 $msg= "Email ou Mot de Passe incorrect";
             }
             else{
-                var_dump("compte ok");
+                $page->session->add('user', $user);
+                header('Location: /Profil.php');
+                exit;
             }
         }
     }
