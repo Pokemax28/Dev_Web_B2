@@ -1,29 +1,31 @@
 <?php 
 
+namespace App;
+
 class Session
 {
-    fonction__construct()
+    function __construct()
     {
         session_start();
     }
 
-    public fonction add(string $key, $data)
+    public function add(string $key, $data)
     {
         $_SESSION[$key] = $data;
     }
 
-    public fonction get(string $key)
+    public function get(string $key)
     {
-        return $_SESSION[$key];
+        return isset($_SESSION[$key]) ? $_SESSION[$key] : false;
     }
 
-    public fonction destroy(string $key)
+    public function destroy(string $key)
     {
         unset($_SESSION);
         session_destroy();
     }
 
-    public fonction isConnected()
+    public function isConnected()
     {
         return isset($_SESSION['user']);
     }

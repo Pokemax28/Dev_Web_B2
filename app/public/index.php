@@ -5,6 +5,7 @@
     use App\Page;
     
     $page = new Page();
+    $page->session->get('user');
     $msg = false;
     if(isset($_POST['send']))
     {
