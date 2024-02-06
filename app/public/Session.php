@@ -27,4 +27,9 @@ class Session
     {
         return isset($_SESSION['user']);
     }
+
+    public function hasRole(string $role)
+    {
+        return isset($_SESSION['user']['role']) == $role ? true : false;
+    }
 }
