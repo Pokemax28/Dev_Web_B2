@@ -13,7 +13,7 @@ if(isset($_POST['send']))
         'email'=> $_POST['email'],
         'password'=> $Mdp_Crypt
     ]);
-    header('Location: index.php');
+    header('Location: AjoutInfo.php');
     exit;
 }
 

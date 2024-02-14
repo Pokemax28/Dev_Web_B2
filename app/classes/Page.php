@@ -34,6 +34,13 @@ public function insert(string $table_name, array $data)
     $stmt->execute($data);
 }
 
+public function insertMore(string $table_name, array $data)
+{
+    $sql = "INSERT INTO" . $table_name . "(prenom,nom,adresse,telephone) VALUES (:prenom,:nom,:adresse,:Ntel)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute($data);
+}
+
 public function getUserByEmail(array $data)
 {
     $sql = "SELECT * FROM users WHERE email = :email";
