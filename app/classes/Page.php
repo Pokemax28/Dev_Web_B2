@@ -44,6 +44,7 @@ public function getUserByEmail(array $data)
 }
 
 
+
     function render(string $name, array $data) :string
     {
         return $this->twig->render($name, $data);
