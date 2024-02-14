@@ -34,9 +34,9 @@ public function insert(string $table_name, array $data)
     $stmt->execute($data);
 }
 
-public function insertMore(string $table_name, array $data)
+public function update(string $table_name, array $data)
 {
-    $sql = "INSERT INTO" . $table_name . "(prenom,nom,adresse,telephone) VALUES (:prenom,:nom,:adresse,:Ntel)";
+    $sql = "UPDATE " . $table_name . " SET prenom=:prenom, nom=:nom, adresse=:adresse, Ntel=:Ntel WHERE id=:id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute($data);
 }

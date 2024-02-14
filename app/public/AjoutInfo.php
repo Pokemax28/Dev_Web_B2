@@ -15,16 +15,16 @@ if(isset($_POST['send'])) {
    
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
-    $adresse = $_POST['adresse'];
-    $telephone = $_POST['telephone'];
+    $adresse = $_POST['addresse'];
+    $telephone = $_POST['Ntel'];
     
-    $page->insertMore('users', [
-        'prenom' => $_POST['prenom'],
-        'nom' => $_POST['nom'],
-        'adresse' => $_POST['adresse'],
-        'Ntel' => $_POST['telephone'],
+    $page->update('users', [
+        'id' => $page->session->get('user')['id'], // get the user id from the session (the user is connected so we have the id in the session
+        'prenom' => $prenom,
+        'nom' => $nom,
+        'adresse' => $adresse,
+        'Ntel' => $telephone,
     ]);
-    
     header("Location: Profil.php");
     exit;
 }
