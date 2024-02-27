@@ -2,21 +2,101 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accord Energie | {% block title %}{% endblock %}</title>
     <style>
-        {% block styles %}
-        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #0A2438;
+            margin: 0;
+            padding: 0;
+        }
+
         header {
             background-color: #0A2438;
             padding: 10px 0;
             text-align: center;
             color: #fff;
         }
-        {% endblock %}
+
+        header img {
+            width: 125px; 
+            height: auto;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 320px;
+            margin: 100px auto 20px auto; /* Augmentation de la valeur margin-top */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0A2438;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #082032;
+        }
+
+        .register-link {
+            text-align: left;
+        }
+
+        .register-link a {
+            color: #0A2438;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            color: #0A2438;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <img src="/image/Accord_Energie2.png" alt="Accord Energie">
+    </header>
+
     {% block body %}{% endblock %}
 </body>
 </html>
