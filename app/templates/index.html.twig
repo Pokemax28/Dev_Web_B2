@@ -9,11 +9,20 @@
             font-family: Arial, sans-serif;
             background-color: #fff;
             color: #0A2438;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0A2438;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        header img {
+            width: 125px; 
+            height: auto;
         }
 
         .container {
@@ -21,7 +30,12 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 80%;
+            max-width: 320px;
+            margin: 100px auto 20px auto; /* Augmentation de la valeur margin-top */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .form-group {
@@ -79,6 +93,9 @@
     </style>
 </head>
 <body>
+    <header>
+        <img src="/image/Accord_Energie2.png" alt="Accord Energie">
+    </header>
     <div class="container">
         {% if msg %}
             <div class="message">{{msg}}</div>
@@ -86,6 +103,7 @@
         
         <form action="" method="post" class="login-form">
             <div class="form-group">
+            <h1>Connexion</h1>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required="required" placeholder="Entrez votre email">
             </div>
@@ -102,6 +120,9 @@
             <p class="register-link">
                 <a href="register.php">Vous n'avez pas encore de compte ?</a>
             </p>
+            
+            <input type="hidden" name="type_compte" value="0">
+        
         </form>
     </div>
 </body>
