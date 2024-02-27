@@ -25,6 +25,11 @@ if(isset($_POST['send'])) {
         'adresse' => $adresse,
         'Ntel' => $telephone,
     ]);
+
+    $page->session->add('user', $page->getUserByEmail([
+        'email' => $page->session->get('user')['email'],
+    ]));
+    
     header("Location: Profil.php");
     exit;
 }

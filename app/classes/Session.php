@@ -19,7 +19,7 @@ class Session
         return isset($_SESSION[$key]) ? $_SESSION[$key] : false;
     }
 
-    public function destroy(string $key)
+    public function destroy()
     {
         unset($_SESSION);
         session_destroy();

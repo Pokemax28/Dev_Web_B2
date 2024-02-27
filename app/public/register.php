@@ -12,7 +12,12 @@ if(isset($_POST['send']))
     $page->insert('users',[
         'email'=> $_POST['email'],
         'password'=> $Mdp_Crypt
+        
     ]);
+    $page->session->add('user', $page->getUserByEmail([
+        'email' => $_POST['email'],
+    ]));
+
     header('Location: AjoutInfo.php');
     exit;
 }
