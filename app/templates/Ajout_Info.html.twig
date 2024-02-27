@@ -3,9 +3,57 @@
 {% block title %}Ajout d'informations{% endblock %}
 
 {% block styles %}
-body {
-    /* Vos styles personnalisés pour la page d'ajout ici, si nécessaire */
-}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #0A2438;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #0A2438;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background-color: #082032;
+    }
+</style>
 {% endblock %}
 
 {% block body %}

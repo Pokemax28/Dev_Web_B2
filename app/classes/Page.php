@@ -12,6 +12,7 @@ class Page
 
     function __construct()
     {
+        $prefixe = str_contains(getcwd( ) ,'admin') ? '../' : '';
         $this ->session = new Session();
         try {
             $this->pdo = new \PDO('mysql:host=mysql;dbname=Web_B2', "root", "");
@@ -19,9 +20,9 @@ class Page
             var_dump($e->getMessage());
             die();
         }
-        $loader = new \Twig\Loader\FilesystemLoader('../templates');
+        $loader = new \Twig\Loader\FilesystemLoader($prefixe . '../templates');
         $this->twig = new \Twig\Environment($loader, [
-            'cache' => '../var/cache/compilation_cache',
+            'cache' => $prefixe . '../var/cache/compilation_cache',
             'debug' => true,
         ]);
     }
@@ -50,6 +51,30 @@ public function getUserByEmail(array $data)
 
 }
 
+public function getAllUsers()
+{
+    $sql = "SELECT * FROM users";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $users;     
+}
+
+public function Ban($id)
+{
+    $sql = "UPDATE users SET Active = 0 WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+
+}
+
+public function UnBan($id)
+{
+    $sql = "UPDATE users SET Active = 1 WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+
+}
 
 
     function render(string $name, array $data) :string
