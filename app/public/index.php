@@ -23,6 +23,10 @@
             }
             else{
                 $page->session->add('user', $user);
+                if($page->session->hasRole('admin')){
+                    header('Location: /admin.php');
+                    exit;
+                }
                 header('Location: /Profil.php');
                 exit;
             }
