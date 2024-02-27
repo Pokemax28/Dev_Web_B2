@@ -1,0 +1,108 @@
+
+{% block head %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+        .table th {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .ban-btn {
+        background-color: #ff4136; /* Couleur rouge */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .unban-btn {
+        background-color: #2ecc40; /* Couleur verte */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .ban-btn:hover {
+        background-color: #e82c20; /* Une teinte de rouge plus foncée */
+    }
+
+    .unban-btn:hover {
+        background-color: #24a532; /* Une teinte de vert plus foncée */
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Adresse</th>
+            <th>N.Tel</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.adresse }}</td>
+            <td>{{ user.Ntel }}</td>
+            {% if(user['Active'] == 1) %}
+            
+            <td>
+                <form action="Ban.php" method="post">
+                    <input type="hidden" name="id" value="{{ user.id }}">
+                    <button type="submit" name="send" class="ban-btn">Bannir</button>
+                </form>
+            </td>
+                
+            {% else %}
+            
+            <td>
+                <form action="Unban.php" method="post">
+                    <input type="hidden" name="id" value="{{ user.id }}">
+                    <button type="submit" name="send" class="unban-btn">Débannir</button>
+                </form>
+            {% endif %}
+            
+           
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
