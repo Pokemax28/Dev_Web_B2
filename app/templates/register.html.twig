@@ -1,51 +1,108 @@
 {% extends "base_auth.html.twig" %}
 
+{% block title %}Créez votre compte{% endblock %}
+
+{% block styles %}
+
+        header {
+            background-color: #0A2438;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #0A2438;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0A2438;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #082032;
+}
+
+.register-link {
+    text-align: center;
+}
+
+.register-link a {
+    color: #0A2438;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+{% endblock %}
+
 {% block body %}
-
-<h1>Creez votre compte</h1>
-
-<form action = "" method = "post">
-<div>
-    <label for = "email">Email</label>
-    <input 
-        type = "email" 
-        id = "email" 
-        name = "email" 
-        reqired = "required"
-        placeholder = "Entrez votre email"
-    />
-</div>
-
-<div>
-    <label for = "password">Mot de Passe</label>
-    <input 
-        type = "password" 
-        id = "password" 
-        name = "password" 
-        reqired = "required"
-        placeholder = "Entrez votre password"
-    />
-</div>
-
-<div>
-    <label for = "password-cfg">Confirmation Mot de Passe</label>
-    <input 
-        type = "password" 
-        id = "password-cfg" 
-        name = "password-cfg" 
-        reqired = "required"
-        placeholder = "Confirmez votre password"
-    />
-</div>
-
-<div>
-    <input type = "submit" value = "Creez" name="send" />
-</div>
-
-</form>
-
-<p>
-    <a href = "index.php">Deja un compte ?</a>
-</p>
+<div class="container">
+   
+    <h1>Créez votre compte</h1>
     
-{% endblock %} 
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required="required" placeholder="Entrez votre email">
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Mot de Passe</label>
+            <input type="password" id="password" name="password" required="required" placeholder="Entrez votre mot de passe">
+        </div>
+    
+        <div class="form-group">
+            <label for="password-cfg">Confirmation Mot de Passe</label>
+            <input type="password" id="password-cfg" name="password-cfg" required="required" placeholder="Confirmez votre mot de passe">
+        </div>
+    
+        <div class="form-group">
+            <input type="submit" value="Créez" name="send" class="submit-btn">
+        </div>
+    </form>
+    
+    <p class="register-link">
+        <a href="index.php">Déjà un compte ?</a>
+    </p>
+</div>
+{% endblock %}

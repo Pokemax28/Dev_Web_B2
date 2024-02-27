@@ -1,29 +1,40 @@
 {% extends "base_auth.html.twig" %}
 
+{% block title %}Ajout d'informations{% endblock %}
+
+{% block styles %}
+body {
+    /* Vos styles personnalisés pour la page d'ajout ici, si nécessaire */
+}
+{% endblock %}
+
 {% block body %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ajout d'informations</title>
-</head>
-<body>
+<div class="container">
     <h1>Ajout d'informations</h1>
     <form action="" method="POST">
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" required><br><br>
+        <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
         
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required><br><br>
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
         
-        <label for="addresse">Adresse:</label>
-        <input type="text" id="addresse" name="addresse" required><br><br>
+        <div class="form-group">
+            <label for="addresse">Adresse:</label>
+            <input type="text" id="addresse" name="addresse" required>
+        </div>
         
-        <label for="Ntel">Numéro de téléphone:</label>
-        <input type="tel" id="Ntel" name="Ntel" required><br><br>
+        <div class="form-group">
+            <label for="Ntel">Numéro de téléphone:</label>
+            <input type="tel" id="Ntel" name="Ntel" required>
+        </div>
         
-        <input type="submit" name="send" value="Ajouter">
+        <div class="form-group">
+            <input type="submit" name="send" value="Ajouter" class="submit-btn">
+        </div>
     </form>
-</body>
-</html>
-</form>
-{% endblock %} 
+</div>
+{% endblock %}

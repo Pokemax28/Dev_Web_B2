@@ -1,38 +1,108 @@
-<h1>Connexion</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #0A2438;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-{% if msg %}
-    <div>{{msg}}</div>
-{% endif %}
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
 
-<form action = "" method = "post">
-<div>
-    <label for = "email">Email</label>
-    <input 
-        type = "email" 
-        id = "email" 
-        name = "email" 
-        reqired = "required"
-        placeholder = "Entrez votre email"
-    />
-</div>
+        .form-group {
+            margin-bottom: 20px;
+        }
 
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-<div>
-    <label for = "password">Mot de passe</label>
-    <input 
-        type = "password" 
-        id = "password" 
-        name = "password" 
-        reqired = "required"
-        placeholder = "Entrez votre password"
-    />
-</div>
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0A2438;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-<div>
-    <input type = "submit" value = "Se connecter" name="send" />
-</div>
+        .submit-btn:hover {
+            background-color: #082032;
+        }
 
-<p>
- <a href="register.php"> Vous n'avez pas encore de compte ?</a>
-</p>
+        .register-link {
+            text-align: center;
+        }
+
+        .register-link a {
+            color: #0A2438;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            color: #0A2438;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if msg %}
+            <div class="message">{{msg}}</div>
+        {% endif %}
+        
+        <form action="" method="post" class="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required="required" placeholder="Entrez votre email">
+            </div>
+        
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required="required" placeholder="Entrez votre mot de passe">
+            </div>
+        
+            <div class="form-group">
+                <input type="submit" value="Se connecter" name="send" class="submit-btn">
+            </div>
+        
+            <p class="register-link">
+                <a href="register.php">Vous n'avez pas encore de compte ?</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
