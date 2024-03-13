@@ -73,12 +73,28 @@ public function UnBan($id)
     $sql = "UPDATE users SET Active = 1 WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
-
 }
 
-
-    function render(string $name, array $data) :string
+function render(string $name, array $data) :string
     {
         return $this->twig->render($name, $data);
     }
+
+    public function addIntervention(array $data)
+    {
+        $sql = "INSERT INTO intervention (id_user, Degre_Urgence, date_intervention, Description) VALUES (:id_user, :Degre_Urgence, :date_intervention, :Description)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($data);
+    }
+
+    public function getAllInterventionsByUserId($userId)
+    {
+        $sql = "SELECT * FROM intervention WHERE id_user = :id_user";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id_user' => $userId]);
+        $interventions = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $interventions;
+    }
+    
 }
+    
