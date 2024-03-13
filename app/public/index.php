@@ -20,12 +20,20 @@ if (isset($_POST['send'])) {
             $msg= "Email ou Mot de Passe incorrect";
         } else{
             $page->session->add('user', $user);
-            if($page->session->hasRole('admin')){
+            if($user['typeDeCompte'] == 1){
                 header('Location: /admin.php');
                 exit;
             }
+            if($user['typeDeCompte'] == 2 )
+            {
+                header('Location: /secretaire.php');
+                exit;
+            }
+            else
+            {
             header('Location: /Profil.php');
             exit;
+            }
         }
     }
 }

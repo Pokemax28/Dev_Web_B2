@@ -1,0 +1,101 @@
+
+
+
+{% block styles %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        /* Supprimez ou ajustez le style de flex pour permettre au conteneur de grandir verticalement */
+        padding-top: 20px; /* Ajout d'un peu d'espace en haut pour le scrolling */
+    }
+    .container {
+        
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Augmentation de la largeur pour accommoder le formulaire plus large */
+        width: 1000px; /* Ajustez cette valeur selon le besoin, ou utilisez 'auto' */
+        max-width: 1500px; /* Ou toute autre largeur maximum appropriée */
+        margin: 0 auto; /* Centrer le conteneur */
+        
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="datetime-local"],
+    .form-group textarea { /* Ajoutez textarea ici pour appliquer le même style */
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Création d'une intervention</h1>
+    <form action="Intervention.php" method="POST">
+        <input type="hidden" id="id_user" name="id_user" value="{{ user_id }}">
+
+  <div class="form-group">
+    <label for="Degre_Urgence">Degré d'urgence:</label>
+    <select id="Degre_Urgence" name="Degre_Urgence" required>
+        <option value="0">Aucune urgence</option>
+        <option value="1">Urgence</option>
+        <option value="2">Très urgent</option>
+    </select>
+</div>
+
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="Description" rows="4" cols="50" required oninput="updateCharacterCount()"></textarea>
+            <div id="characterCount">0 / 250 caractères</div>
+        </div>
+
+        <script>
+        function updateCharacterCount() {
+            var descriptionInput = document.getElementById('description');
+            var count = descriptionInput.value.length;
+            var characterCountElement = document.getElementById('characterCount');
+            characterCountElement.textContent = count + " / 250 caractères";
+
+            if (count > 250) {
+                descriptionInput.value = descriptionInput.value.substring(0, 250);
+            }
+        }
+        </script>
+
+        <div class="form-group">
+            <label for="date_intervention">Quand esperez vous une intervention ?</label>
+            <input type="datetime-local" id="date_intervention" name="date_intervention" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Créer Intervention" class="submit-btn">
+        </div>
+    </form>
+</div>
+{% endblock %}

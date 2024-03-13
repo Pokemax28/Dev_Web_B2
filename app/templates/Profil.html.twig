@@ -99,6 +99,10 @@
         <p>{{user['Ntel']}}</p>
         <p>{{user['email']}}</p>
         <p>{{user['adresse']}}</p>
+
+        <a href = "Intervention.php" class = "button" >Demander une Intervention</a>
+
+        <br></br>
         
         <div class="review">
             
@@ -150,32 +154,27 @@
     </div>
 
     
+    {% for intervention in interventions %}
     <div class="review">
-
-        <div class="review">
-            <p> Intervention 1 </p>
-        </div>
-
-        <div class="review">
-            <p> Intervention 2 </p>
-        </div>
-
-        <div class="review">
-            <p> Intervention 3 </p>
-        </div>
-
-        <div class="review">
-            <p> Intervention 4 </p>
-        </div>
+        <p>Intervention: {{ intervention.Description }} </p>
+        <p>Date: {{ intervention.date_intervention | date('Y-m-d') }}</p>
+        <p>Etat:  
+        {% if intervention.Degre_Urgence == 0 %}
+         Pas Urgent 
+        {%  elseif intervention.Degre_Urgence == 1 %}
+         Urgent 
+        {% elseif intervention.Degre_Urgence == 2 %}
+         Très Urgent 
+        {% endif %}
+        </p>
     </div>
+{% endfor %}
    <a href = "logout.php" class = "button" >Logout</a>
-
 </body>
 
 </html>
-
 </div>
-<footer>
+ <footer>
     <p>Coordonnées:</p>
     <p>[Your coordinates here]</p>
     <p>Mentions légales:</p>

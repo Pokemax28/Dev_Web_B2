@@ -12,3 +12,4 @@ $users = $page->getAllUsers();
 echo $page->render('admin/users/list.html.twig', [
     'users' => $users
 ]);
+    
