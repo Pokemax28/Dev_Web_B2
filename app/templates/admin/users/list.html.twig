@@ -94,7 +94,7 @@
             {% else %}
             
             <td>
-                <form action="Unban.php" method="post">
+                <form action="/admin/Unban.php" method="post">
                     <input type="hidden" name="id" value="{{ user.id }}">
                     <button type="submit" name="send" class="unban-btn">Débannir</button>
                 </form>
@@ -106,3 +106,5 @@
     </tbody>
 </table>
 {% endblock %}
+
+<a href = "/logout.php" class = "button" >Logout</a>
