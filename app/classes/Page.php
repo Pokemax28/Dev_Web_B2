@@ -95,6 +95,28 @@ function render(string $name, array $data) :string
         $interventions = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $interventions;
     }
+
+
+    public function getAllInterventions()
+{
+    $sql = "SELECT intervention.*, users.nom, users.prenom, users.typeDeCompte
+            FROM intervention 
+            JOIN users ON intervention.id_user = users.id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    $interventions = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $interventions;     
+}
+
+public function getAllIntervenants()
+{
+    $sql = "SELECT id, nom, prenom FROM users WHERE typeDeCompte = 3";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+}
+
+
     
 }
     

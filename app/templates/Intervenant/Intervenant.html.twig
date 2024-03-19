@@ -1,0 +1,71 @@
+
+{% block head %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+        .table th {
+            background-color: #00   7bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table tbody tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+Interventions a venir 
+<table class="table">
+    <thead>
+        <tr>
+            <th>N° Demande</th>
+            <th>Nom Utilisateur</th>
+            <th>Prenom Utilisateur</th>
+            <th>Degre D'urgence</th>
+            <th>Date Intervention</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for intervention in interventions %}
+        {% if user.id != intervention.Id_Intervenant %}
+            <tr>
+                <td>{{ intervention.Id_Demande }}</td>
+                <td>{{ intervention.nom }}</td>
+                <td>{{ intervention.prenom }}</td>
+                <td>{{ intervention.Degre_Urgence }}</td>
+                <td>{{ intervention.date_intervention|date("Y-m-d H:i") }}</td>
+                <td>{{ intervention.Description }}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+ 
+
+
+<a href = "/logout.php" class = "button" >Logout</a>

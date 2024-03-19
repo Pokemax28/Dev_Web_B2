@@ -9,4 +9,6 @@ $page = new Page();
 
 $users = $page->getAllUsers();
 
-echo $page->render('admin/users/list.html.twig', ['users' => $users]);
+echo $page->render('admin/users/list.html.twig', [
+    'users' => $users,
+]);

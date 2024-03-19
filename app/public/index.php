@@ -29,6 +29,11 @@ if (isset($_POST['send'])) {
                 header('Location: /secretaire.php');
                 exit;
             }
+            if($user['typeDeCompte'] == 3 )
+            {
+                header('Location: /intervenant.php');
+                exit;
+            }
             else
             {
             header('Location: /Profil.php');

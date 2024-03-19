@@ -8,7 +8,7 @@ $page = new Page();
 
 $intervenants = $page->getAllIntervenants();
 $interventions = $page->getAllInterventions(); // Assurez-vous que cette méthode existe et fonctionne comme prévu
-echo $page->render('secretaire/secretaire.html.twig', [
+echo $page->render('Intervenant/Intervenant.html.twig', [
     'interventions' => $interventions,
     'intervenants' => $intervenants,
 ]);
