@@ -49,8 +49,10 @@ Interventions a venir
         </tr>
     </thead>
     <tbody>
+    {% set hasInterventions = false %}
     {% for intervention in interventions %}
         {% if user.id != intervention.Id_Intervenant %}
+            {% set hasInterventions = true %}
             <tr>
                 <td>{{ intervention.Id_Demande }}</td>
                 <td>{{ intervention.nom }}</td>
@@ -61,9 +63,15 @@ Interventions a venir
             </tr>
         {% endif %}
     {% endfor %}
+    {% if not hasInterventions %}
+        <tr>
+           <td colspan="6">Vous n'avez pas d'interventions à venir.</td>
+        </tr>
+    {% endif %}
     </tbody>
 </table>
 {% endblock %}
+
 
  
 
