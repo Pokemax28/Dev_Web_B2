@@ -116,7 +116,19 @@ public function getAllIntervenants()
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 }
 
+public function Ajout($intervenantId, $idDemande) {
+    $sql = "UPDATE Demande SET Id_Intervenant = :intervenantId WHERE Id_Demande = :demandeId";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([
+        ':demandeId' => $idDemande,
+        ':intervenantId' => $intervenantId
+    ]);
+}
+
+}
+
+
 
     
-}
+
     

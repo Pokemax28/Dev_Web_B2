@@ -57,11 +57,72 @@
     .unban-btn:hover {
         background-color: #24a532; /* Une teinte de vert plus foncée */
     }
+
+    
+header {
+            background-color: #0A2438;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+        
+        footer
+        {
+            background-color: #0A2438;
+            padding: 10px 0;
+            text-align: left;
+            color: #fff;
+        }
+
+        header img {
+            width: 125px; /* or any other size */
+            height: auto;
+        }
+        
+    .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    transition: all 0.3s;
+}
+
+.button:hover {background-color: #0056b3}
+
+.button:active {
+    background-color: #0056b3;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+  .titre-admin {
+    font-size: 24px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Centrer le texte si nécessaire */
+}
     </style>
 {% endblock %}
 
 {% block body %}
 <table class="table">
+  <header>
+        <img src="/image/Accord_Energie2.png" alt="Accord Energie">
+</header>
+
+
+<br><br>
+<br><br>
+<div class="titre-admin">Utilisateur de votre site</div>
+<br><br>
+
+
     <thead>
         <tr>
             <th>Id</th>
