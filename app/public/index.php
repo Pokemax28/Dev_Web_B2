@@ -4,6 +4,7 @@ namespace App;
 require_once '../vendor/autoload.php';
 
 use App\Page;
+use App\Session;
 
 $page = new Page();
 $msg = false;

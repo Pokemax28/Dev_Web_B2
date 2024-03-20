@@ -146,7 +146,7 @@ header {
             {% if(user['Active'] == 1) %}
             
             <td>
-                <form action="Ban.php" method="post">
+                <form action="/admin/Ban.php" method="post">
                     <input type="hidden" name="id" value="{{ user.id }}">
                     <button type="submit" name="send" class="ban-btn">Bannir</button>
                 </form>

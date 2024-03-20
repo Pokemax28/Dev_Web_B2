@@ -16,8 +16,5 @@
             $page->Ajout($intervenantId, $idDemande);
         }
     }
-    
-
-    // Redirect at the end
     header("Location: /secretaire.php");
     exit();
